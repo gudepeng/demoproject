@@ -16,3 +16,11 @@ spring:
         uri: lb://servicea
         predicates:
           - Path=/a/**
+  zipkin:
+    locator:
+      discovery:
+        enabled: true
+    base-url: http://127.0.0.1:9411
+  sleuth:
+    sampler:
+      probability: 1.0
