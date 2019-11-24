@@ -23,7 +23,7 @@ spring:
     sharding:
       tables:
         userorder:
-          actual-data-nodes: demo$->{0..1}.userorder$->{0..1}
+          actual-data-nodes: demo0.userorder$->{0..1}
           table-strategy:
             inline:
               sharding-column: month
