@@ -6,6 +6,6 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface UserOrderMapper {
-    @Insert("insert into myorder1 (name,month) values (#{name},#{month})")
+    @Insert("insert into userorder (id,name,month) values (#{id},#{name},#{month})")
     int addUserOrder(UserOrder userOrder);
 }
