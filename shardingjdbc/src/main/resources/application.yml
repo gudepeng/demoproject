@@ -1,0 +1,31 @@
+server:
+  port: 8005
+spring:
+  application:
+    name: shardingjdbc
+  shardingsphere:
+    datasource:
+      names: demo0
+      demo0:
+        type: com.alibaba.druid.pool.DruidDataSource
+        driver-class-name: com.mysql.jdbc.Driver
+        url: jdbc:mysql://39.106.214.109:3306/demo0
+        username: icoding
+        password: icoding
+    sharding:
+      tables:
+        myorder:
+          actual-data-nodes: demo$->{0..1}.myorder$->{0..1}
+          table-strategy:
+            inline:
+              sharding-column: month
+              algorithm-expression: myorder$->{month % 12}
+          database-strategy:
+            inline:
+              sharding-column: month
+              algorithm-expression: demo$->{month % 2}
+          key-generator:
+            column: id
+            type: SNOWFLAKE
+mybatis:
+  mapperLocations: classpath*:com/gdp/**/mapper/*Mapper.xml
