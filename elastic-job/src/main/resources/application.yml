@@ -1,0 +1,9 @@
+server:
+  port: 8005
+
+spring:
+  application:
+    name: shardingdemo
+elasticjob:
+  serverlists: 127.0.0.1:2181
+  namespace: demo-job
