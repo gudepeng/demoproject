@@ -6,6 +6,6 @@ import com.dangdang.ddframe.job.api.simple.SimpleJob;
 public class MyElasticJob implements SimpleJob {
     @Override
     public void execute(ShardingContext shardingContext) {
-        System.out.println(1111111);
+        System.out.println("AAAAAAAAA");
     }
 }

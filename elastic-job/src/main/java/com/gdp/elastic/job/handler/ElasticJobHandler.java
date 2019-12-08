@@ -2,12 +2,11 @@ package com.gdp.elastic.job.handler;
 
 import com.dangdang.ddframe.job.config.JobCoreConfiguration;
 import com.dangdang.ddframe.job.config.simple.SimpleJobConfiguration;
-import com.dangdang.ddframe.job.event.JobEventConfiguration;
-import com.dangdang.ddframe.job.lite.api.listener.ElasticJobListener;
+import com.dangdang.ddframe.job.lite.api.JobScheduler;
 import com.dangdang.ddframe.job.lite.config.LiteJobConfiguration;
-import com.dangdang.ddframe.job.lite.spring.api.SpringJobScheduler;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
 import com.gdp.elastic.job.excute.MyElasticJob;
+import com.gdp.elastic.job.listener.MyElasticJobListener;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +17,9 @@ public class ElasticJobHandler {
     @Autowired
     private ZookeeperRegistryCenter registryCenter;
 
+    @Autowired
+    private MyElasticJobListener myElasticJobListener;
+
     @PostConstruct
     public void addJob(){
         JobCoreConfiguration simpleCoreConfig = JobCoreConfiguration.newBuilder("demoSimpleJob", "0/15 * * * * ?", 10).build();
@@ -26,6 +28,6 @@ public class ElasticJobHandler {
         // 定义Lite作业根配置
         LiteJobConfiguration simpleJobRootConfig = LiteJobConfiguration.newBuilder(simpleJobConfig).build();
 
-        new SpringJobScheduler(new MyElasticJob(), registryCenter, simpleJobRootConfig, null).init();
+        new JobScheduler(registryCenter, simpleJobRootConfig,myElasticJobListener).init();
     }
 }

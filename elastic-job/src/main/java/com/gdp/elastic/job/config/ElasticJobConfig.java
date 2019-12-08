@@ -2,54 +2,51 @@ package com.gdp.elastic.job.config;
 
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperConfiguration;
 import com.dangdang.ddframe.job.reg.zookeeper.ZookeeperRegistryCenter;
-import org.springframework.beans.factory.annotation.Value;
+import com.gdp.elastic.job.listener.MyElasticJobListener;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
+@ConfigurationProperties(prefix = "elasticjob")
 public class ElasticJobConfig {
 
     /**
      * 连接Zookeeper服务器的列表. 包括IP地址和端口号. 多个地址用逗号分隔. 如: host1:2181,host2:2181
      */
-    @Value("${elasticjob.serverlists}")
     private String serverLists;
 
     /**
-     * 命名空间.
+     * 命名空间
      */
-    @Value("${elasticjob.namespace}")
     private String namespace;
 
-    /**
-     * 等待重试的间隔时间的初始值. 单位毫秒.
-     */
-    private int baseSleepTimeMilliseconds;
-
-    /**
-     * 等待重试的间隔时间的最大值. 单位毫秒.
-     */
-    private int maxSleepTimeMilliseconds;
-
-    /**
-     * 最大重试次数.
-     */
-    private int maxRetries;
-
-    /**
-     * 登录权限
-     */
-    private String digest;
 
     @Bean(initMethod = "init")
     public ZookeeperRegistryCenter zookeeperRegistryCenter() {
         ZookeeperConfiguration zookeeperConfiguration = new ZookeeperConfiguration(serverLists, namespace);
-//        zookeeperConfiguration.setMaxRetries(maxRetries);
-////        zookeeperConfiguration.setBaseSleepTimeMilliseconds(baseSleepTimeMilliseconds);
-////        zookeeperConfiguration.setMaxSleepTimeMilliseconds(maxSleepTimeMilliseconds);
-////        zookeeperConfiguration.setDigest(digest);
         return new ZookeeperRegistryCenter(zookeeperConfiguration);
+    }
+
+    @Bean
+    public MyElasticJobListener myElasticJobListener(){
+        return new MyElasticJobListener(0,0);
+    }
+
+    public String getServerLists() {
+        return serverLists;
+    }
+
+    public void setServerLists(String serverLists) {
+        this.serverLists = serverLists;
+    }
+
+    public String getNamespace() {
+        return namespace;
+    }
+
+    public void setNamespace(String namespace) {
+        this.namespace = namespace;
     }
 
 }
