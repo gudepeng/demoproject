@@ -1,0 +1,10 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: curatorleader
+zookeeper:
+  server: 127.0.0.1:2181
+  namespace: gdpdemo
+  baseSleepTimeMs: 1000
+  maxRetries: 3

@@ -9,46 +9,26 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>elastic-job</artifactId>
+    <artifactId>curator</artifactId>
     <packaging>jar</packaging>
-
     <dependencies>
-        <!-- spring boot -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>com.dangdang</groupId>
-            <artifactId>elastic-job-lite-core</artifactId>
-            <version>2.1.5</version>
-            <exclusions>
-                <exclusion>
-                    <artifactId>*</artifactId>
-                    <groupId>org.apache.curator</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-framework</artifactId>
-            <version>2.13.0</version>
-        </dependency>
-        <dependency>
             <groupId>org.apache.curator</groupId>
             <artifactId>curator-recipes</artifactId>
-            <version>2.13.0</version>
+            <version>4.2.0</version>
         </dependency>
-        <dependency>
-            <groupId>org.apache.curator</groupId>
-            <artifactId>curator-x-discovery</artifactId>
-            <version>2.13.0</version>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.apache.curator</groupId>-->
+<!--            <artifactId>curator-x-discovery</artifactId>-->
+<!--            <version>4.2.0</version>-->
+<!--        </dependency>-->
     </dependencies>
-
-
     <build>
-        <finalName>elastic-job</finalName>
+        <finalName>curator</finalName>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

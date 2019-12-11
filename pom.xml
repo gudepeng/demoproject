@@ -13,6 +13,7 @@
         <module>seata-serviceb</module>
         <module>xxl-job</module>
         <module>elastic-job</module>
+        <module>curator</module>
     </modules>
 
     <parent>
