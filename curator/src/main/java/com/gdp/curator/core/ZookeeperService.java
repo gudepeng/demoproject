@@ -26,6 +26,8 @@ public class ZookeeperService {
                 .namespace(zkConfig.getNamespace())
                 .build();
         this.client.start();
+        MyConnectionStateListener myConnectionStateListener = new MyConnectionStateListener();
+        client.getConnectionStateListenable().addListener(myConnectionStateListener);
     }
 
     public CuratorFramework getClient(){
