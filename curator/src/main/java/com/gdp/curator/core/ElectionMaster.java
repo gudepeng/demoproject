@@ -9,7 +9,6 @@ import org.springframework.stereotype.Component;
 import javax.annotation.PostConstruct;
 import java.io.EOFException;
 
-@Component
 public class ElectionMaster {
 
     @Autowired
@@ -18,10 +17,10 @@ public class ElectionMaster {
     private LeaderLatch leaderLatch;
 
     @PostConstruct
-    public void init(){
+    public void initLatch(){
         try {
             CuratorFramework client = zookeeperService.getClient();
-            String lockPath = "/gdpdemo/leader";
+            String lockPath = "/leader";
             leaderLatch = new LeaderLatch(client,lockPath);
             LeaderLatchListener listener = new LeaderLatchListener() {
                 @Override
@@ -37,6 +36,10 @@ public class ElectionMaster {
             leaderLatch.addListener(listener);
             leaderLatch.start();
             leaderLatch.await();
+            while (true){
+                System.out.println("for i am master");
+                Thread.sleep(1000);
+            }
         }catch (InterruptedException e) {
             e.printStackTrace();
         } catch (EOFException e) {
@@ -46,4 +49,6 @@ public class ElectionMaster {
         }
 
     }
+
+
 }
