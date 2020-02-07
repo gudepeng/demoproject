@@ -1,0 +1,14 @@
+server:
+  port: 8000
+spring:
+  application:
+    name: mulitdatasource
+  datasource:
+    default:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/demo0
+      username: root
+      password: 123456
+    demo2:
+      jdbc-url: jdbc:mysql://127.0.0.1:3306/demo1
+      username: root
+      password: 123456

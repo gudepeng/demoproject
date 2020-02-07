@@ -14,6 +14,7 @@
         <module>xxl-job</module>
         <module>elastic-job</module>
         <module>curator</module>
+        <module>mulitdatasource</module>
     </modules>
 
     <parent>
