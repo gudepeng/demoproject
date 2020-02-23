@@ -3,14 +3,14 @@ server:
 mybatis:
   mapperLocations: classpath*:com/tys/**/dap/*Mapper.xml
 spring:
-  application:
-    name: shardingdemo
-#  datasource:
-#    url: jdbc:mysql://39.106.214.109:3306/demo0
-#    username: icoding
-#    password: icoding
-#    type: com.alibaba.druid.pool.DruidDataSource
-#    driver-class-name: com.mysql.cj.jdbc.Driver
+      #  application:
+      #    name: shardingdemo
+      ##  datasource:
+      ##    url: jdbc:mysql://39.106.214.109:3306/demo0
+      ##    username: icoding
+      ##    password: icoding
+    ##    type: com.alibaba.druid.pool.DruidDataSource
+    ##    driver-class-name: com.mysql.cj.jdbc.Driver
   shardingsphere:
     datasource:
       names: demo0

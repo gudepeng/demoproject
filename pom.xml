@@ -5,9 +5,9 @@
     <modelVersion>4.0.0</modelVersion>
     <modules>
         <module>sc-gateway</module>
-        <module>sc-a</module>
-        <module>sc-b</module>
-        <module>sc-c</module>
+        <module>sc-servera</module>
+        <module>sc-serverb</module>
+        <module>sc-serverc</module>
         <module>shardingjdbc</module>
         <module>seata-servicea</module>
         <module>seata-serviceb</module>
@@ -15,6 +15,9 @@
         <module>elastic-job</module>
         <module>curator</module>
         <module>mulitdatasource</module>
+        <module>mybatis-plus</module>
+        <module>sc-security</module>
+        <module>sc-demo</module>
     </modules>
 
     <parent>

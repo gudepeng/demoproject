@@ -1,0 +1,13 @@
+server:
+  port: 8002
+spring:
+  application:
+    name: mybatisplus
+  datasource:
+    url: jdbc:mysql://127.0.0.1/demo0
+    username: root
+    password: 123456
+# Logger Config
+logging:
+  level:
+    com.baomidou.mybatisplus.samples.quickstart: debug

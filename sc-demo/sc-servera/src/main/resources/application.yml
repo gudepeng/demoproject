@@ -1,0 +1,18 @@
+server:
+  port: 8001
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 39.106.214.109:8848
+#    sentinel:
+#      transport:
+#        dashboard: 127.0.0.1:8858
+#  zipkin:
+#    locator:
+#      discovery:
+#        enabled: true
+#    base-url: http://127.0.0.1:9411
+#  sleuth:
+#    sampler:
+#      probability: 1.0
