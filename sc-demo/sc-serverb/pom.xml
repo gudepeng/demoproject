@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>sc-b</artifactId>
+    <artifactId>sc-serverb</artifactId>
     <packaging>jar</packaging>
 
     <dependencies>

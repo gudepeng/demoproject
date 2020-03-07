@@ -11,5 +11,20 @@
 
     <artifactId>sc-demo</artifactId>
 
+    <modules>
+        <module>sc-gateway</module>
+        <module>sc-servera</module>
+        <module>sc-serverb</module>
+        <module>sc-serverc</module>
+        <module>sc-security</module>
+        <module>sc-common</module>
+    </modules>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.10</version>
+        </dependency>
+    </dependencies>
 </project>

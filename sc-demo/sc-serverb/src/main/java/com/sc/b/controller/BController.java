@@ -11,14 +11,13 @@ import javax.servlet.http.HttpServletRequest;
 @RestController
 public class BController {
 
-    @Autowired
-    private CClient cClient;
+
 
     @GetMapping("/b/bsdemo")
     @SentinelResource(value = "bsdemo", blockHandler = "exceptionHandler", fallback = "fallbackHandler")
     public String bsdemo(HttpServletRequest request) {
         System.out.println(request.getHeader("csdemo"));
-        return cClient.csdemo();
+        return "demo";
     }
 
     public String fallbackHandler(HttpServletRequest request) {
