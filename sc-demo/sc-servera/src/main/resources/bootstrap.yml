@@ -1,8 +1,0 @@
-spring:
-  application:
-    name: servicea
-  cloud:
-    nacos:
-      config:
-        server-addr: 39.106.214.109:8848
-        file-extension: yml
